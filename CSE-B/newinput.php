@@ -1,23 +1,13 @@
 <?php
-if (isset($_POST['btn'])){
-echo $_POST['id'].'<br>';
-echo $_POST['username'].'<br>';
-echo $_POST['age'].'<br>';
-echo $_POST['contact'].'<br>';
-echo $_POST['email'].'<br>';
-}
-else
-  {
-    echo "welcome guest";
-  }
-?>
+include('config.php');
+ ?>
+
 <html>
 <head>
   <title>Input Form</title>
 </head>
 <body>
-  <form action="newinput.php" method="post">
-    Id: <input name="id", type="text", placeholder="Enter Id"><br>
+  <form action="details.php" method="post">
     Name:<input type="text" name="username">
     <br>
     Age: <input name="age", type="text", placeholder="Enter Age"><br>

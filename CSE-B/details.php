@@ -1,11 +1,17 @@
 <?php
+include('config.php');
+ ?>
+
+<?php
 if (isset($_POST['btn'])){
-  echo "Dear, ".$_POST['username']."Your details are".'<br>';
-echo $_POST['id'].'<br>';
-echo $_POST['username'].'<br>';
-echo $_POST['age'].'<br>';
-echo $_POST['contact'].'<br>';
-echo $_POST['email'].'<br>';
+  echo "Dear, ".$_POST['username']."You are welcome".'<br>';
+$username= $_POST['username'];
+$age= $_POST['age'];
+$contact= $_POST['contact'];
+$email= $_POST['email'];
+
+$sql = "INSERT INTO users (name, age, contact, email) VALUES ('$username','$age','$contact','$email') ";
+mysqli_query($conn, $sql);
 }
 else
   {
