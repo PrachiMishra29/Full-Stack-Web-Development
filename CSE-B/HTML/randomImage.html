@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Image Generation</title>
+  </head>
+  <body>
+    <img src="f1.jpg" id='img' width="200px" height="300px">
+    <input type="button" value="change image" id='btn'>
+      <script type="text/javascript">
+      function randomImageGeneration()
+      {
+        random = 1+Math.ceil(Math.random()*6);
+        return random;
+      }
+    document.getElementById('btn').onclick = function()
+    {
+      var imageName = randomImageGeneration();
+      document.getElementById('img').src="f"+imageName+'.jpg';
+    }
+</script>
+
+  </body>
+</html>
