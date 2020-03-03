@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Random Image at random time</title>
+<style media="screen">
+  div{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: red;
+
+      border-width: 2px;
+      border-color: black;
+      border-style: dashed;
+  }
+    </style>
+  </head>
+  <body>
+    <img src="f1.jpg" id='img' width="200px" height="300px">
+      <script type="text/javascript">
+      function randomImageGeneration()
+      {
+        random = 1+Math.ceil(Math.random()*6);
+        return random;
+      }
+    function abc(){
+      var imageName = randomImageGeneration();
+      document.getElementById('img').src="f"+imageName+'.jpg';
+    }
+    setInterval(abc,2000);
+</script>
+
+
+
+
+
+
+  </body>
+</html>
