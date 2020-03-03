@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<style media="screen">
+  div{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: red;
+
+      border-width: 2px;
+      border-color: black;
+      border-style: dashed;
+  }
+    </style>
+  </head>
+  <body>
+      <div id="circle"></div>
+      <script type="text/javascript">
+      function randomColorGeneration(){
+          colors = "123456789ABCDEF";
+          color = "#";
+
+          for(var i=1; i<=6; i++){
+              random = Math.ceil(Math.random()*14)
+              color = color + colors[random];
+              console.log(color);
+          }
+          return color;
+
+      }
+
+                      function abc(){
+
+                          color = randomColorGeneration();
+                          circle.style.backgroundColor = color;
+                      }
+                      setInterval(abc,2000);
+
+
+
+      </script>
+  </body>
+</html>
