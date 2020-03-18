@@ -8,6 +8,7 @@
   table, th, td {
 border: 1px solid black;
 border-collapse: collapse;
+border-style: dashed;
 }
 </style>
 <body>
@@ -28,6 +29,8 @@ if($result->num_rows > 0){
             <th>Branch</th>
             <th>Contact</th>
             <th>E-Mail</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +44,8 @@ if($result->num_rows > 0){
             <td><?php echo $data['branch']; ?></td>
         <td><?php echo $data['contact']; ?></td>
         <td><?php echo $data['email']; ?></td>
+        <td><a href="edit.php?id=<?php $data['id'];?>">Edit</a></td>
+        <td><a href="delete.php?id=<?php $data['id'];?>">Delete</td>
     </tr>
     <?php } ?>
     </tbody>
