@@ -2,16 +2,37 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Question 3</title>
   </head>
   <body>
-    <form action="posts.html" method="post">
-        Keyword: <input name="keyword", type="text", placeholder="Enter Keyword"><br>
-        <input type="submit" name='btn'>
-        </form>
-    <script src="posts.js"></script>
-    <script>
+    <script type="text/javascript">
+    function input(){
+    fetch('./posts.json')
+    .then(response => response.json())
+    .then(dt => parsefile(dt))
+    }
 
+    function parsefile(dt){
+     var key=document.getElementById("keyword").value;
+     var title,res="";
+     key=RegExp(key,'g');
+      for(i=0;i<dt.length;i++)
+      {
+          title=dt[i]['title'].concat(" " + dt[i]['body']);
+          var value = (title.match(key) || [] ).length ;
+          if(value!=0)
+          {
+            value= dt[i]['userId'] + " " + dt[i]['id'] + " " + value;
+            res+= value + "<br>";
+          }
+      }
+
+  document.getElementById("res").innerHTML= "<br>" + res;
+}
     </script>
   </body>
+  <input name="keyword", type="text", id="keyword", placeholder="Enter Keyword"><br>
+  <button type="button" onclick="input()" >Search</button>
+  <div id="res">
+  </div>
 </html>
