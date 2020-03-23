@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Question 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      fetch('./rest.json').then(function (response){
+          return response.json();
+      }).then(function (user_data){
+        restname(user_data)
+      });
+      var value="";
+      function restname(data){
+       var record = data['body']['Recommendations'];
+       record.forEach(ob => {
+         value+= "<br>" + ob.RestaurantName + "<br>";
+        ob['menu'].forEach(menu => {
+
+            if(menu['type']=="sectionheader")
+            value+= "-->" + menu.name + "<br>";
+      menu['children'].forEach(child => {
+        var temp="-----";
+        if(child['type']=='item' && child['selected']==1)
+       { value+=temp + ">" + child['name'] + "<br>";
+        childname(child['children'],temp);}
+        return;
+      });
+      return;
+  });
+  return;
+});
+function childname(menu,temp){
+ menu.forEach(child => {
+    if(child['selected']==1)
+    {temp+=temp;
+      value+= temp + ">" + child['name'] + "<br>";
+     return childname(child['children'],temp);
+     }
+     else if( child['selected']==0 ){
+    return;
+  }
+  });
+}
+ document.getElementById("res").innerHTML=value;
+}
+    </script>
+    <div id="res">
+    </div>
+  </body>
+</html>
